@@ -1,0 +1,35 @@
+{
+    "manifest_version":2,
+    "name":"aa",
+    "version":"2.0",
+    "description":"Speech recognition",
+   
+   "browser_action":{
+       "default_popup":"popup.html"
+       
+   },
+   "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+
+  "web_accessible_resources": [
+    "airports.txt",
+    "airport.csv"
+],
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  
+   "permissions":[
+             "tabs"
+   ],
+   
+   "content_security_policy": "default-src 'self' 'unsafe-eval'"
+
+   }
+    
